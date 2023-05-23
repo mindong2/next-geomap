@@ -15,6 +15,8 @@ const Example: NextPage<Props> = ({ data }) => {
 
 export default Example;
 
+// SSG + ISR 
+
 export async function getStaticProps() {
   const delayInSeconds = 2; //2초간 Pending 후 HTML 업데이트
   const data = await new Promise((resolve) =>
@@ -22,7 +24,7 @@ export async function getStaticProps() {
   ); // 개발환경에서는 계속해서 값이바뀌기 때문에 build
 
   return {
-    // revalidate를 하더라고 data값이 바뀌지 않으면 next는 pre-rendering을 하지 않는다.
+    // revalidate를 하더라도 data값이 바뀌지 않으면 next는 pre-rendering을 하지 않는다.
     props: { data },
     /*
     이미 build된 사이트에서 정적인 페이지를 업데이트 할수있다.
