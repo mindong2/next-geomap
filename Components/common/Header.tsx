@@ -1,14 +1,24 @@
 import Link from "next/link";
 import styles from "../../style/header.module.scss";
-const Header = () => {
+import Image from "next/image";
+import Logo from '../../public/images/logo.png'
+
+interface IHeader {
+    rightElements ?: React.ReactElement[];
+}
+
+const Header = ({ rightElements } : IHeader) => {
     return (
-        <header>
+        <header className={styles.header}>
             <div className={styles.flexItem}>
                 <Link href="/" className={styles.box} aria-label="홈으로 이동">
-                    <img src="https://cdn-icons-png.flaticon.com/512/854/854878.png" height={20} alt="Logo" />
+                    <Image
+                    src={Logo}
+                    height={20} alt="Logo" />
                     My Map Service
                 </Link>
             </div>
+            {rightElements && <div className={styles.flexItem}>{rightElements}</div>}
         </header>
     );
 };

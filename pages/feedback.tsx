@@ -1,11 +1,9 @@
-import Header from "../Components/common/Header";
 import Link from "next/link";
-import styles from '../style/header.module.scss';
+import Header from "../Components/common/Header";
+import styles from "../style/header.module.scss";
 import { AiOutlineShareAlt } from 'react-icons/ai';
 import { VscFeedback } from 'react-icons/vsc';
-import MapSection from "../Components/Home/MapSection";
-export default function Home() {
-
+const Feedback = () => {
     return (
         <>
             <Header 
@@ -28,10 +26,9 @@ export default function Home() {
                   <VscFeedback size={20} color="#444444" />
                 </Link>
             ]}
-            />
-             <main style={{ width: '100%', height: '100%' }}>
-              <MapSection />
-            </main>
+            />      
         </>
     );
-}
+};
+
+export default Feedback;
